@@ -7,6 +7,7 @@ Quick Links:
 - [Pidog](#pidog)
   - [Docs](#docs)
   - [Installation](#installation)
+  - [AI Integration](#ai-integration)
   - [About SunFounder](#about-sunfounder)
   - [Contact us](#contact-us)
   - [Credit](#credit)
@@ -62,6 +63,37 @@ sudo python3 setup.py install
 ```
 cd ~/pidog
 sudo bash i2samp.sh
+```
+
+----------------------------------------------
+
+## AI Integration
+
+Pidog supports AI-powered conversations and interactions through both OpenAI GPT and Google Gemini.
+
+### OpenAI GPT Integration
+
+Located in `gpt_examples/` directory:
+- Full conversational AI with voice interaction
+- Vision capabilities for image analysis
+- OpenAI's Whisper for speech-to-text
+- OpenAI's TTS for natural voice responses
+- See `gpt_examples/README.md` for setup instructions
+
+### Google Gemini Integration
+
+Located in `gpt_examples/` directory:
+- **NEW**: Alternative to OpenAI using Google's Gemini AI
+- Free tier available with competitive performance
+- Multimodal capabilities (text + vision)
+- Google Speech Recognition and Google TTS
+- See `gpt_examples/gemini_README.md` for setup instructions
+
+**Quick Start with Gemini:**
+```bash
+cd gpt_examples
+# Edit gemini_keys.py with your API key from https://makersuite.google.com/app/apikey
+sudo python3 gemini_dog.py
 ```
 
 ----------------------------------------------

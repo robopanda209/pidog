@@ -43,3 +43,18 @@ def sox_volume(input_file, output_file, volume):
     except Exception as e:
         print(f"sox_volume err: {e}")
         return False
+
+def sox_volume_mp3_to_wav(input_file, output_file, volume):
+    """Convert MP3 to WAV and adjust volume using sox"""
+    import sox
+
+    try:
+        transform = sox.Transformer()
+        transform.vol(volume)
+        # sox will automatically handle format conversion based on file extension
+        transform.build(input_file, output_file)
+
+        return True
+    except Exception as e:
+        print(f"sox_volume_mp3_to_wav err: {e}")
+        return False
