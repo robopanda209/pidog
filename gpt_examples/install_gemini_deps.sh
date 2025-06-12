@@ -13,7 +13,7 @@ sudo apt update
 
 # Install system dependencies
 echo "Installing system dependencies..."
-sudo apt install -y python3-pyaudio sox
+sudo apt install -y python3-pyaudio sox flac libsox-fmt-all
 
 # Install Python packages
 echo "Installing Python packages..."
