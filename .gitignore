@@ -4,3 +4,7 @@ photo
 test/photo*
 test/scene/*
 backups/*
+
+# API Keys (keep these private)
+gpt_examples/gemini_keys.py
+gpt_examples/keys.py
