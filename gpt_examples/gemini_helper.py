@@ -91,8 +91,17 @@ Always respond in the JSON format specified above."""
             if response.text:
                 chat_print(self.assistant_name, response.text)
                 try:
+                    # Clean response text - remove markdown code blocks if present
+                    cleaned_text = response.text.strip()
+                    if cleaned_text.startswith('```json'):
+                        # Remove markdown json code blocks
+                        cleaned_text = cleaned_text.replace('```json', '').replace('```', '').strip()
+                    elif cleaned_text.startswith('```'):
+                        # Remove any code blocks
+                        cleaned_text = cleaned_text.replace('```', '').strip()
+                    
                     # Try to parse as JSON
-                    value = json.loads(response.text)
+                    value = json.loads(cleaned_text)
                     return value
                 except json.JSONDecodeError:
                     # If not valid JSON, return as string
@@ -122,8 +131,17 @@ Always respond in the JSON format specified above."""
             if response.text:
                 chat_print(self.assistant_name, response.text)
                 try:
+                    # Clean response text - remove markdown code blocks if present
+                    cleaned_text = response.text.strip()
+                    if cleaned_text.startswith('```json'):
+                        # Remove markdown json code blocks
+                        cleaned_text = cleaned_text.replace('```json', '').replace('```', '').strip()
+                    elif cleaned_text.startswith('```'):
+                        # Remove any code blocks
+                        cleaned_text = cleaned_text.replace('```', '').strip()
+                    
                     # Try to parse as JSON
-                    value = json.loads(response.text)
+                    value = json.loads(cleaned_text)
                     return value
                 except json.JSONDecodeError:
                     # If not valid JSON, return as string
