@@ -122,16 +122,11 @@ setup_environment() {
     print_status "Upgrading pip..."
     pip install --upgrade pip
     
-    # Install PiDog library
-    print_status "Installing PiDog library in development mode..."
-    cd "$pidog_dir"
-    pip install -e .
-    
-    # Install basic dependencies
+    # Install basic dependencies first
     print_status "Installing Python dependencies..."
     pip install setuptools wheel
     
-    # Install robot-hat
+    # Install robot-hat FIRST (before PiDog, since PiDog depends on it)
     print_status "Installing robot-hat library..."
     cd "$deps_base_dir"
     if [ ! -d "robot-hat" ]; then
@@ -148,6 +143,11 @@ setup_environment() {
     fi
     cd vilib
     python3 install.py
+    
+    # Now install PiDog library (after dependencies are installed)
+    print_status "Installing PiDog library in development mode..."
+    cd "$pidog_dir"
+    pip install -e .
     
     # Deactivate environment
     deactivate
